@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getAllCharactersAllPages, getCharactersByIds, getEpisode } from '@/lib/Api';
+import Button from '@/components/Button'; 
 
 export default function ComparePage() {
   const [characters, setCharacters] = useState([]);
@@ -98,6 +99,11 @@ export default function ComparePage() {
           No hay episodios en común.
         </p>
       ) : null}
+      <div className="mt-8 flex justify-center">
+        <Button href="/" className="px-6 py-2 text-sm">
+          ← Volver al inicio
+        </Button>
+      </div>
     </main>
   );
 }

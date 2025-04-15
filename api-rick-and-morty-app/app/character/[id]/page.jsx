@@ -1,4 +1,5 @@
 import { getCharacterById, getEpisode } from '@/lib/Api';
+import Button from '@/components/Button'; 
 
 export default async function CharacterDetailPage({ params }) {
   const { id } = params;
@@ -41,6 +42,11 @@ export default async function CharacterDetailPage({ params }) {
             {firstEpisode.name}
           </p>
         </div>
+      </div>
+      <div className="mt-8 flex justify-center">
+        <Button href="/" className="px-6 py-2 text-sm">
+          ← Volver al inicio
+        </Button>
       </div>
     </main>
   );
