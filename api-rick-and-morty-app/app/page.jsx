@@ -26,7 +26,6 @@ export default function HomePage() {
     setLoading(false);
   };
 
-  // Busqueda en tiempo real
   useEffect(() => {
     const delay = setTimeout(() => {
       fetchData(1);

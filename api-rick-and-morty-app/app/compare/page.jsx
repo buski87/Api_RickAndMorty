@@ -75,12 +75,11 @@ export default function ComparePage() {
         </select>
       </div>
 
-      {/* Mensaje de error si son iguales */}
       {error && (
         <p className="text-center text-red-600 font-semibold mb-4">{error}</p>
       )}
 
-      {/* Resultado */}
+
       {loading ? (
         <p className="text-center text-gray-500">Buscando episodios en común...</p>
       ) : commonEpisodes.length > 0 ? (
