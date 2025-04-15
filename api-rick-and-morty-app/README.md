@@ -1,6 +1,7 @@
 # Rick and Morty Api
 
-Aplicación web creada con **Next.js 14**, **React**, **Tailwind CSS** y la API oficial de Rick and Morty. Permite explorar personajes, ver detalles, buscar y comparar en qué episodios coinciden dos personajes.
+Aplicación web creada con **Next.js 14**, **React**, **Tailwind CSS** y la API oficial de Rick and Morty. 
+Permite explorar personajes, ver detalles, buscar y comparar en qué episodios coinciden dos personajes.
 
 ---
 
@@ -32,10 +33,17 @@ Aplicación web creada con **Next.js 14**, **React**, **Tailwind CSS** y la API 
 
 1. Clona el repositorio:
 
-```bash
-git clone https://github.com/tuusuario/rick-and-morty-app.git
-cd rick-and-morty-app
+git clone https://github.com/buski87/Api_RickAndMorty
+cd api-rick-and-morty-app
 
+
+2. Instala las dependencias:
+npm install
+
+3.Inicia el entorno de desarrollo:
+npm run dev
+
+La aplicación estará disponible en http://localhost:3000.
 
 🧠 Autor
 Desarrollado por Buski87.
