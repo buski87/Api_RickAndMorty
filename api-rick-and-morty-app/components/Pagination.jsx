@@ -1,27 +1,52 @@
 import Button from '@/components/Button';
 
+const PAGE_BLOCK_SIZE = 5; // Número de páginas por bloque
+
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
+  // Calcula el bloque actual (0-indexado)
+  const currentBlock = Math.floor((currentPage - 1) / PAGE_BLOCK_SIZE);
+
+  // Páginas del bloque actual
+  const blockStart = currentBlock * PAGE_BLOCK_SIZE + 1;
+  const blockEnd = Math.min(blockStart + PAGE_BLOCK_SIZE - 1, totalPages);
+  const pageNumbers = [];
+  for (let i = blockStart; i <= blockEnd; i++) {
+    pageNumbers.push(i);
+  }
+
+  // ¿Hay bloques anterior/siguiente?
+  const hasPrevBlock = blockStart > 1;
+  const hasNextBlock = blockEnd < totalPages;
+
   return (
-    <div className="flex justify-center items-center gap-4 mt-10 text-sm">
-      {currentPage > 1 && (
+    <div className="flex justify-center items-center gap-2 mt-10 text-sm flex-wrap">
+      {hasPrevBlock && (
         <Button
-          onClick={() => onPageChange(currentPage - 1)}
-          className="bg-blue-800 text-white hover:bg-blue-900 px-6 py-2 rounded-lg shadow"
+          onClick={() => onPageChange(blockStart - PAGE_BLOCK_SIZE)}
+          className="bg-blue-800 text-white hover:bg-blue-900 px-3 py-2 rounded-lg shadow"
         >
-          ← Anterior
+          ←
         </Button>
       )}
-
-      <span className="text-gray-700 font-medium">
-        Página {currentPage} de {totalPages}
-      </span>
-
-      {currentPage < totalPages && (
+      {pageNumbers.map((page) => (
         <Button
-          onClick={() => onPageChange(currentPage + 1)}
-          className="bg-blue-800 text-white hover:bg-blue-900 px-6 py-2 rounded-lg shadow"
+          key={page}
+          onClick={() => onPageChange(page)}
+          className={`px-3 py-2 rounded-lg shadow ${
+            page === currentPage
+              ? 'bg-orange-500 text-white'
+              : 'bg-gray-200 hover:bg-blue-100 text-blue-900'
+          }`}
         >
-          Siguiente →
+          {page}
+        </Button>
+      ))}
+      {hasNextBlock && (
+        <Button
+          onClick={() => onPageChange(blockEnd + 1)}
+          className="bg-blue-800 text-white hover:bg-blue-900 px-3 py-2 rounded-lg shadow"
+        >
+          →
         </Button>
       )}
     </div>
