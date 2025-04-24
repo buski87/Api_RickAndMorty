@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        geist: ['Geist', 'sans-serif'],
+        geistmono: ['Geist Mono', 'monospace'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      
     },
   },
   plugins: [],

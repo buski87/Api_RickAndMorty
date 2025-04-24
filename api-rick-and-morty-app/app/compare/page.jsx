@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getAllCharactersAllPages, getCharactersByIds, getEpisode } from '@/lib/Api';
 import Button from '@/components/Button'; 
 
+
 export default function ComparePage() {
   const [characters, setCharacters] = useState([]);
   const [char1, setChar1] = useState('');
