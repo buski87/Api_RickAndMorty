@@ -1,12 +1,12 @@
 import Button from '@/components/Button';
 
-const PAGE_BLOCK_SIZE = 5; // Número de páginas por bloque
+const PAGE_BLOCK_SIZE = 5; 
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
-  // Calcula el bloque actual (0-indexado)
+ 
   const currentBlock = Math.floor((currentPage - 1) / PAGE_BLOCK_SIZE);
 
-  // Páginas del bloque actual
+
   const blockStart = currentBlock * PAGE_BLOCK_SIZE + 1;
   const blockEnd = Math.min(blockStart + PAGE_BLOCK_SIZE - 1, totalPages);
   const pageNumbers = [];
@@ -14,7 +14,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     pageNumbers.push(i);
   }
 
-  // ¿Hay bloques anterior/siguiente?
+
   const hasPrevBlock = blockStart > 1;
   const hasNextBlock = blockEnd < totalPages;
 
