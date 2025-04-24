@@ -16,7 +16,7 @@ export default function CharacterCard({ character }) {
         <h2 className="font-semibold text-ls mb-2">{character.name}</h2>
         <Button
           href={`/character/${character.id}`}
-          className="w-full text-ls py-1 mt-auto"
+          className="w-full text-ls py-1 mt-auto bg-blue-600 text-white hover:bg-blue-700"
         >
           Ver detalles
         </Button>
