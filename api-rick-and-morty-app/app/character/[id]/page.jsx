@@ -44,7 +44,7 @@ export default async function CharacterDetailPage({ params }) {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <Button href="/" className="px-6 py-2 text-sm">
+        <Button href="/" className="px-6 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700">
           ← Volver al inicio
         </Button>
       </div>
