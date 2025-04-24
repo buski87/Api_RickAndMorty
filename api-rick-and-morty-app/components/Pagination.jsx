@@ -1,19 +1,16 @@
 import Button from '@/components/Button';
 
-const PAGE_BLOCK_SIZE = 5; 
+const PAGE_BLOCK_SIZE = 5;
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
- 
   const currentBlock = Math.floor((currentPage - 1) / PAGE_BLOCK_SIZE);
-
-
   const blockStart = currentBlock * PAGE_BLOCK_SIZE + 1;
   const blockEnd = Math.min(blockStart + PAGE_BLOCK_SIZE - 1, totalPages);
+
   const pageNumbers = [];
   for (let i = blockStart; i <= blockEnd; i++) {
     pageNumbers.push(i);
   }
-
 
   const hasPrevBlock = blockStart > 1;
   const hasNextBlock = blockEnd < totalPages;
@@ -32,11 +29,12 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         <Button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`px-3 py-2 rounded-lg shadow ${
+          // Aquí, clases **sin template string** para evitar purgado Tailwind
+          className={
             page === currentPage
-              ? 'bg-orange-500 text-white'
-              : 'bg-gray-200 hover:bg-blue-100 text-blue-900'
-          }`}
+              ? "px-3 py-2 rounded-lg shadow bg-orange-500 text-white"
+              : "px-3 py-2 rounded-lg shadow bg-gray-200 hover:bg-blue-100 text-blue-900"
+          }
         >
           {page}
         </Button>
